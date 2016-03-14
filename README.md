@@ -1,2 +1,5 @@
 # cadavre-exquis
-the legendary game put on website
+The legendary game put on website
+
+Play without log in, or create your account !
+
