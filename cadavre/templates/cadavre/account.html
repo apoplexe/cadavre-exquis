@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+
+<div class="jumbotron account" ng-controller="Syncinfo">
+	<div class="container">
+		<div class="jumbotron">
+			{% if user.profile.avatar %}
+        	<img src="{{ user.profile.avatar.url }}" class="img-rounded img-size" />
+      		{% endif %}
+      		<ul class="present">
+				<li>{{ user.username }}</li>
+			</ul>
+		</div>
+		
+		<hr>
+		
+		<p>Actualisez vos informations de compte ici</p>
+		
+		<div >
+			<h2>Identifiant</h2>
+			
+			<form method="post">
+				{% csrf_token %}
+				{{ form_account_username|crispy }}
+				
+				<div class="row container-fluid validation">
+				    <input class="" type="submit" value="Valider" action="username"/>
+	    			<button class=""><a href="home">Annuler</a></button>
+			    </div>
+			
+			</form>
+		</div>
+		
+		<div >
+			<h2>Courriel</h2>
+
+			<form method="post">
+				{% csrf_token %}
+				{{ form_account_email|crispy }}
+				
+				<div class="row container-fluid validation">
+				    <input class="" type="submit" value="Valider" action="email"/>
+	    			<button class=""><a href="home">Annuler</a></button>
+			    </div>
+			
+			</form>
+		</div>
+
+		<div >
+			<h2>Mot de Passe</h2>
+			<form method="post">
+				{% csrf_token %}
+				{{ form_account_pass|crispy }}
+
+                <a class="forgot_link" href="email_pass">Vous avez oublié vos identifiants ?</a>
+
+				<div class="row container-fluid validation">
+				    <input class="" type="submit" value="Valider" action="pass"/>
+	    			<button class=""><a href="home">Annuler</a></button>
+			    </div>
+			
+			</form>
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}

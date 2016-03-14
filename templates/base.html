@@ -1,0 +1,64 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html >
+    <head>
+        <title>My Project</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'cadavre/css/style.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'cadavre/css/bootstrap.css' %}" />
+ 		<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+    </head>
+
+ 	<body >
+
+		<nav class="navbar navbar-default navbar-fixed-top">
+		  <div class="row container-fluid">
+
+		  	<div class="navbar-header visible-lg visible-md visible-sm">
+		  		<a class="navbar-brand" href="{% if user.is_authenticated %}home_cadavre{% else %}home{% endif %}">
+		  			<img alt="logo" src="/media/tools/logo.png" height="20">
+		  		</a>
+		  	</div>
+
+		  	<ul class="nav navbar-nav navbar">
+		  		{% if user.is_authenticated %}
+		  		<li><a href="/cadavre/{{ user.username }}">Vos Parties</a></li>
+		  		{% else %}
+		  		<li><a href="/cadavre/rules">C'est quoi ?</a></li>
+		  		{% endif %}
+		  		<li><a href="/cadavre/home_cadavre">Jouer</a></li>
+		  		<li><a href="/cadavre/explorer">Explorer</a></li>
+		  	</ul>
+
+		  	<ul class="nav navbar-nav navbar-right">
+        		{% if user.is_authenticated %}
+       			<li class="dropdown">
+          			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Outils <span class="caret"></span></a>
+         			<ul class="dropdown-menu">
+						<li><a href="account">Mon Compte</a></li>
+        				<li><a href="#">Contactez-nous</a></li>
+            			<li role="separator" class="divider"></li>
+						<li><a href="disconnect">Déconnexion</a></li>
+					</ul>
+       			</li>
+       			{% else %}
+        		<li><a href="#">Contact</a></li>
+       			{% endif %}
+      		</ul>
+
+		  </div>
+		</nav>
+		<div class="responsive-trick hidden-lg hidden-md hidden-sm"></div>
+
+		{% block content %}{% endblock content %}
+
+	</body>
+
+		<script type="text/javascript" src="{% static 'cadavre/js/jquery.js' %}" /></script>
+		<script type="text/javascript" src="{% static 'cadavre/js/bootstrap.js' %}" /></script>
+		<script type="text/javascript" src="{% static 'cadavre/js/wesh.js' %}" /></script>
+
+	</html>

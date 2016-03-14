@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="jumbotron email-pass">
+	<div class="container">
+		<h1>Réinitialisation</h1>
+		<p>Entrez votre adresse email afin de pouvoir changer de mot de passe.</p>
+
+		<form method="post">
+		    {% csrf_token %}
+		    {{ form_email_pass|crispy }}
+			<div class="row container-fluid validation">
+			    <input class="" type="submit" value="Valider" action="login_page"/>
+    			<button class=""><a href="home">Annuler</a></button>
+		    </div>
+		</form>
+	</div>
+</div>
+{% endblock content %}

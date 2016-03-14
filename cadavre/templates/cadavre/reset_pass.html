@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="jumbotron">
+	<div class="container">
+		<h1>Confirmation</h1>
+		<p>Vous êtes confirmé {{ user.username }} saississez à présent votre nouveau mot de passe.</p>
+		<form method="post">
+		    {% csrf_token %}
+		    {{ form_reset_pass|crispy }}
+			<div class="row validation">
+			    <input class="" type="submit" value="Valider" action="login_page"/>
+    			<button class=""><a href="home">Annuler</a></button>
+		    </div>
+		</form>
+	</div>
+</div>
+{% endblock content %}

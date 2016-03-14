@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row cadavre">
+  <div class="container">
+    <ul class="col-md-6 col-md-push-3">
+
+      {% for cadavre in cadavres %}
+        {% if cadavre.completed == True %}
+
+      <li class="cadavre_group">
+        <h2>
+        <a href="{{ cadavre.user.username }}">
+        {% if cadavre.user.profile.avatar %}
+        <img src="{{ cadavre.user.profile.avatar.url }}" class="img-rounded" height="30" />
+        {% else %}
+        <img src="/media/avatar/default.svg" class="img-rounded" height="30" />      
+        {% endif %}
+        </a>
+
+        {{ cadavre.title|title }}
+        </h2>
+        
+        <ul class="row">
+          {% for sentance in cadavre.sentance_set.all %}
+          <li class="sentance-switch"><span>{{ sentance.sentance }}</span>
+          <a class="sentance-sign" href="{{ sentance.user.username }}">{{ sentance.user.username }}</a></li>
+          {% endfor %}
+        </ul>     
+      
+      </li>
+
+   <!--   <li class="social-group">
+        <button>J'aime {{ cadavre.like }}</button>
+-->
+      <hr class="hr-perso">
+
+        {% endif %}
+      {% endfor %}
+
+    </ul>
+  </div>
+</div>
+
+{% endblock content %}

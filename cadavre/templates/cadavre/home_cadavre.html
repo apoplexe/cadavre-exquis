@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="menu-box">
+	<h1>Let's Go !</h1>
+	<p>N'hésitez pas à écouter un bon morceau de jazz bien fat, ou une 
+		chanson rock mélancholique, pour vous inspirer</p>
+	<button type="button" class="btn btn-default btn-lg" role="button"
+	 data-toggle="modal" data-target="#New" >NOUVEAU</button>
+    <button type="button" class="btn btn-default btn-lg" role="button"
+     data-toggle="modal" data-target="#Join" >REJOINDRE</button>
+
+</div>
+
+
+<div class="modal fade" id="New" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body ">
+
+        <div class="jumbotron modal-style">
+            <div class="container">
+				<p class="head-modal">Remplissez les champs suivants afin de créer un cadavre.</p>
+
+            	<form method="post">
+	                {% csrf_token %}
+					
+					{{ form_cadavre|crispy }}
+					{{ form_sentance|crispy }}
+
+					{% if user.is_anonymous %}
+					{{ form_mail|crispy }}
+					<span id="helpBlock" class="help-block">Votre adresse servira à vous envoyer le cadavre, une fois celui-ci achevé.</span>
+					{% endif %}
+
+	                <div class="validation modal-footer">
+	                	{% if user.is_anonymous %}
+	                	<input class="" type="submit" value="Valider" action="confirm_cadavre"/>
+	                	{% else %}
+	                	<input class="" type="submit" value="Valider" action="home_cadavre"/>
+			    		{% endif %}
+	                    <button type="button" class="" data-dismiss="modal">Annuler</button>
+	                </div>
+                </form>
+
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Join" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body  ">
+
+        <div class="jumbotron modal-style">
+            <div class="container">
+
+            	<form method='post' enctype="multipart/form-data">
+	                {% csrf_token %}
+					<h2>{{ cadavre|title }}</h2>
+					<p>Votre phrase commence par : </br><span class="last_word">{{ last_word|last }}</span></p>
+					{{ form_sentance|crispy }}
+
+					{% if user.is_anonymous %}
+					{{ form_mail|crispy }}
+					<span id="helpBlock" class="help-block">Votre adresse servira à vous envoyer le cadavre, une fois celui-ci achevé.</span>
+					{% endif %}
+
+	                <div class="validation modal-footer">
+	                	{% if user.is_anonymous %}
+	                	<input class="" type="submit" value="Valider" action="confirm_cadavre"/>
+	                	{% else %}
+	                	<input class="" type="submit" value="Valider" action="home_cadavre"/>
+			    		{% endif %}
+	                    <button type="button" class="" data-dismiss="modal">Annuler</button>
+	                </div>
+                </form>
+
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,59 @@
+li {
+    list-style: none;
+}
+
+.responsive-trick.hidden-lg.hidden-md.hidden-sm {
+    padding-top: 10em;
+}
+
+.menu-box {
+    width: 25%;
+    margin: 0 auto;
+    min-width: 100%;
+    text-align: center;
+    padding: 21em 0;
+}
+.menu-box button.btn.btn-default.btn-lg, 
+.content-box .btn.btn-default.btn-lg {
+    margin: 7px;
+}
+.menu-box button.btn.btn-default.btn-lg:hover, 
+.content-box .btn.btn-default.btn-lg:hover {
+    background-color: white;
+    color: #F95C00;
+}
+.content-box {
+    width: 25%;
+    margin: 0 auto;
+    min-width: 100%;
+    text-align: center;
+}
+
+.cadavre_group {
+    margin: 35px 0;
+    line-height: 1.5;
+    font-size: 1.6em;
+    text-align: center;
+}
+.cadavre_group:first-child {
+    margin-top: 0;
+}
+.sentance-switch:hover span{
+    display: none;
+}
+.sentance-switch:hover .sentance-sign{
+    display: block;
+}
+.sentance-sign{
+    display: none;
+}
+.jumbotron.modal-style {
+    background-color: white;
+    text-align: center;
+    font-size: 1.5em;
+}
+.jumbotron.account {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 25px;
+}

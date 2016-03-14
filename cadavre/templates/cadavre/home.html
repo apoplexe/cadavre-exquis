@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="menu-box">
+  <h1>Bienvenue !</h1>
+  <p>Réalise des cadavres ou participe à la fin des autres internautes</p>
+  <button type="button" class="btn btn-default btn-lg" role="button" 
+ data-toggle="modal" data-target="#Connect" >CONNEXION</button>
+  <button type="button" class="btn btn-default btn-lg" role="button" 
+data-toggle="modal"data-target="#Create" >INSCRIPTION</button>
+</div>
+
+<div class="modal fade" id="Connect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body ">
+
+        <div class="jumbotron modal-style">
+            <div class="container">
+              <h1>Connexion</h1>
+              <p>Vous pouvez entrer votre pseudo et votre mot de passe.</p>
+              
+              <form method="post">
+                {% csrf_token %}
+                {{ form_log|crispy }}
+                <a class="forgot_link" href="email_pass">Vous avez oublié vos identifiants ?</a>
+
+                <div class="validation modal-footer">
+                  <input class="" type="submit" value="Valider" action="."/>
+                  <button type="button" class="" data-dismiss="modal">Annuler</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Create" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body ">
+
+        <div class="jumbotron modal-style">
+            <div class="container">
+              <h1>Inscription</h1>
+              <p>Remplissez les champs suivants afin de créer votre profil.</p>
+
+              <form method='post' enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form_create|crispy }}
+                {{ form_create_profile|crispy }}
+
+                <div class="validation modal-footer">
+                  <input class="" type="submit" value="Valider" action="."/>
+                  <button type="button" class="" data-dismiss="modal">Annuler</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

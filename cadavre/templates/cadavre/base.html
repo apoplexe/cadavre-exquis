@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Project</title>
+    </head>
+		<link rel="stylesheet" type="text/css" href="{% static 'cadavre/style.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'cadavre/bootstrap.css' %}" />
+ 		<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="{% static 'cadavre/wesh.js' %}" /></script>
+
+
+ 	<body>
+		<nav class="navbar navbar-default navbar-fixed-top">
+		  <div class="row container-fluid">
+		  	<ul class="col-md-8 col-md-push-4 nav navbar-nav ">
+		  		<li><a href="home">Vos Parties</a></li>
+		  		<li><a href="home_cadavre">Cadavre Exquis</a></li>
+		  		<li><a href="explorer">Explorer</a></li>
+		  	</ul>
+
+		  </div>
+		</nav>
+		{% block content %}{% endblock content %}
+
+	</body>
+</html>
