@@ -37,7 +37,6 @@ class Cadavre(models.Model):
 		return u'%s' % (self.title)
 
 class Sentance(models.Model):
-
 	user = models.ForeignKey(User)
 	cadavre = models.ForeignKey(Cadavre)
 	sentance = models.CharField(max_length=60, default="le bourgeon dans la plaine")
