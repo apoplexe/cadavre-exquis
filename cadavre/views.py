@@ -88,7 +88,7 @@ def home(request):
             profile.avatar = avatar
             profile.save()
 
-            title = 'wesh'
+            title = 'Bonjour'
             content = "Salut %s ! Pour activer ton compte, clic sur ce lien (avant 48h) \
             http://localhost:8000/cadavre/confirm/%s" % (username, activation_key)
                 
@@ -332,7 +332,7 @@ def account(request):
 
             user.save()
 
-            title = 'wesh'
+            title = 'Bonjour'
             content = "Salut! Pour activer ton compte, clic sur ce lien (avant 48h) \
             http://localhost:8000/cadavre/confirm/%s" % (activation_key)
                 
