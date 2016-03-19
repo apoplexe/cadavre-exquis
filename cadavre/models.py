@@ -16,17 +16,14 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class UserProfile(models.Model):
-
-    user = models.OneToOneField(User, unique=True, related_name='profile')
-    phone_number = models.CharField(max_length=10, default='no phone', null=True)
-    avatar = models.ImageField(upload_to='avatar/', default='avatar')
-    birthday = models.DateField(null=True)
-
-    activation_key = models.CharField(max_length=40, blank=True)
-    key_expires = models.DateTimeField(default=timezone.now)
+	user = models.OneToOneField(User, unique=True, related_name='profile')
+	phone_number = models.CharField(max_length=10, default='no phone', null=True)
+	avatar = models.ImageField(upload_to='avatar/', default='avatar')
+	birthday = models.DateField(null=True)
+	activation_key = models.CharField(max_length=40, blank=True)
+	key_expires = models.DateTimeField(default=timezone.now)
 
 class Cadavre(models.Model):
-
 	user = models.ForeignKey(User)
 	title = models.CharField(max_length=30, default='Titre')
 	sentance_max = models.IntegerField(default=6, validators=[MinValueValidator(3), MaxValueValidator(1000000)])
