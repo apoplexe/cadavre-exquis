@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 't4n6-cj-^wyslpwje5f9ee9*n2h2ovk6cr_=j8q#jb9nsv!k9('
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -112,8 +112,8 @@ LOGIN_REDIRECT_URL = '/cadavre/home'
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'apoplexe'
-EMAIL_HOST_PASSWORD = 'henrysgaao4;'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 
 AUTH_PROFILE_MODULE = 'exquis_cadavre.UserProfile'
