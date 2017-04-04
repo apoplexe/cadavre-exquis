@@ -1,2 +1,3 @@
 .pyc
-/exquis_cadavre/migrations
+/exquis_cadavre/__pycache__
+migrations
