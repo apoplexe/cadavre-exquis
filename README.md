@@ -1,4 +1,5 @@
-# cadavre-exquis
+# Cadavre Exquis
+
 The legendary game put on website
 
-Play with your email adress, or create your account !
+I start to learn web development with this project. It needs to be finished and refreshed !
